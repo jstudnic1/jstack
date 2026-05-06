@@ -1,0 +1,151 @@
+# jstack
+
+A curated set of 32 Claude Code skills I actually use day-to-day, packaged for easy install.
+
+Built around three workflows:
+
+1. **Personal knowledge management** — the [Karpathy LLM-Wiki pattern](https://github.com/karpathy/karpathy.github.io/blob/master/llm_wiki.md) on top of an Obsidian vault.
+2. **Multi-agent / context engineering** — patterns, evaluation, memory systems for building agent platforms.
+3. **Scientific research workflow** — paper lookup, literature reviews, biomed/pharma KG (currently testing).
+
+If you're starting from zero with Claude Code skills, this is a sensible starting kit.
+
+---
+
+## Install
+
+```bash
+git clone https://github.com/jstudnic1/jstack.git
+cp -r jstack/skills/* ~/.claude/skills/
+# restart your Claude Code session
+```
+
+To install a single skill:
+
+```bash
+cp -r jstack/skills/last30days ~/.claude/skills/
+```
+
+Or copy by category — see [What's inside](#whats-inside) below.
+
+---
+
+## What's inside
+
+### Top picks
+
+| Skill | What it does |
+|-------|--------------|
+| [`last30days`](skills/last30days) | Researches what people actually say about a topic in the last 30 days across Reddit, X, YouTube, TikTok, Hacker News, Polymarket, GitHub, and the web. |
+| [`planning-with-files`](skills/planning-with-files) | Manus-style persistent file-based planning (`task_plan.md` + `findings.md` + `progress.md`) with tamper-attestation hooks. Survives `/clear`. |
+| [`caveman`](skills/caveman) | Caveman-mode communication — drops filler to cut ~75% tokens while keeping technical accuracy. |
+| [`multi-agent-patterns`](skills/multi-agent-patterns) | Supervisor / swarm / handoff patterns, context isolation for multi-agent systems. |
+| [`karpathy-guidelines`](skills/karpathy-guidelines) | Behavioral guidelines that reduce common LLM coding mistakes — anti-overcomplication, surgical changes, verifiable success criteria. |
+
+### Wiki & web ingestion
+
+| Skill | What it does |
+|-------|--------------|
+| [`defuddle`](skills/defuddle) | URL → clean markdown (drops navigation/clutter). Use instead of WebFetch for token savings. |
+| [`obsidian-markdown`](skills/obsidian-markdown) | Obsidian-flavored markdown — wikilinks, callouts, frontmatter, embeds. |
+| [`obsidian-cli`](skills/obsidian-cli) | CLI operations on Obsidian vaults — read, create, search, manage notes from the shell. |
+| [`obsidian-bases`](skills/obsidian-bases) | `.base` file editing — views, filters, formulas. |
+
+### Multi-agent & context engineering
+
+| Skill | What it does |
+|-------|--------------|
+| [`memory-systems`](skills/memory-systems) | Compares Mem0 / Zep / Letta / LangMem / Cognee. Helps choose persistence architecture for cross-session knowledge. |
+| [`context-compression`](skills/context-compression) | KV-cache, structured summarization, compaction patterns for long-running agent sessions. |
+| [`context-optimization`](skills/context-optimization) | Observation masking, context budgeting, token-efficiency patterns. |
+| [`evaluation`](skills/evaluation) | Multi-dimensional evaluation, LLM-as-judge, quality gates for agent pipelines. |
+| [`advanced-evaluation`](skills/advanced-evaluation) | Position bias mitigation, pairwise comparison, automated quality assessment. |
+| [`tool-design`](skills/tool-design) | Tool consolidation, MCP design, naming conventions. |
+
+### Process & engineering discipline
+
+| Skill | What it does |
+|-------|--------------|
+| [`iterative-retrieval`](skills/iterative-retrieval) | Progressive context refinement — addresses the subagent context problem. |
+| [`cost-aware-llm-pipeline`](skills/cost-aware-llm-pipeline) | Model routing by complexity (Haiku/Sonnet/Opus), prompt caching, budget tracking. |
+| [`eval-harness`](skills/eval-harness) | Eval-driven development framework for Claude Code sessions. |
+| [`grill-me`](skills/grill-me) | Interviews you about a plan/design until every branch is resolved. |
+| [`diagnose`](skills/diagnose) | Disciplined debug loop: reproduce → minimise → hypothesise → instrument → fix → regression-test. |
+
+### Scientific research & papers (currently testing)
+
+> These skills are part of a research workflow I'm actively evaluating. They work, but my own opinions on them are still forming.
+
+| Skill | What it does |
+|-------|--------------|
+| [`paper-lookup`](skills/paper-lookup) | Search 10 academic databases via REST APIs — PubMed, PMC, bioRxiv, medRxiv, arXiv, OpenAlex, Crossref, Semantic Scholar, CORE, Unpaywall. |
+| [`literature-review`](skills/literature-review) | Systematic literature reviews with verified citations, supports APA/Nature/Vancouver. |
+| [`citation-management`](skills/citation-management) | BibTeX, DOI lookups, citation validation. |
+| [`scientific-writing`](skills/scientific-writing) | IMRAD structure, reporting guidelines (CONSORT/STROBE/PRISMA). |
+| [`peer-review`](skills/peer-review) | Structured manuscript reviews with checklist-based evaluation. |
+| [`scholar-evaluation`](skills/scholar-evaluation) | ScholarEval framework for systematic scholarly assessment. |
+
+### Pharma / biomedical (currently testing)
+
+> Aimed at biomedical platform work. Skip if you don't work in this domain.
+
+| Skill | What it does |
+|-------|--------------|
+| [`primekg`](skills/primekg) | Precision Medicine Knowledge Graph — genes, drugs, diseases, phenotypes. |
+| [`medchem`](skills/medchem) | Drug-likeness filters (Lipinski, Veber, PAINS), structural alerts. |
+| [`rdkit`](skills/rdkit) | Cheminformatics toolkit — SMILES, descriptors, fingerprints, similarity. |
+| [`pyhealth`](skills/pyhealth) | Clinical ML pipelines (MIMIC, eICU, OMOP, EHR modeling). |
+| [`pytdc`](skills/pytdc) | Therapeutics Data Commons — ADME, toxicity, DTI datasets. |
+| [`benchling-integration`](skills/benchling-integration) | Benchling registry / inventory / ELN via API. |
+
+---
+
+## What's NOT in this repo (and worth knowing about)
+
+[**superpowers**](https://github.com/obra/superpowers) (180k ⭐) — the agentic skills framework I'd recommend above any single skill in this repo. It overrides Claude Code's default behavior and enforces discipline across the full development flow: brainstorming → writing-plans → test-driven-development → verification-before-completion → systematic-debugging → requesting-code-review.
+
+It installs as a Claude Code plugin, not a file copy:
+
+```
+/plugin marketplace add obra/superpowers
+/plugin install superpowers@obra-superpowers
+```
+
+If you take only one thing from this whole stack, take superpowers.
+
+---
+
+## Attribution & licenses
+
+Most skills in this repo come from upstream open-source projects. Their original LICENSE files are preserved under [`licenses/`](licenses/).
+
+| Skills | Upstream | License |
+|--------|----------|---------|
+| `defuddle`, `obsidian-markdown`, `obsidian-cli`, `obsidian-bases` | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | MIT |
+| `planning-with-files` | [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files) | See [licenses/](licenses/) |
+| `last30days` | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | MIT |
+| `multi-agent-patterns`, `memory-systems`, `context-*`, `evaluation`, `advanced-evaluation`, `tool-design` | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | See [licenses/](licenses/) |
+| `paper-lookup`, `literature-review`, `citation-management`, `scientific-writing`, `peer-review`, `scholar-evaluation`, `primekg`, `medchem`, `rdkit`, `pyhealth`, `pytdc`, `benchling-integration` | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | See [licenses/](licenses/) |
+| `caveman` | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | See [licenses/](licenses/) |
+
+The remaining six skills — `karpathy-guidelines`, `iterative-retrieval`, `cost-aware-llm-pipeline`, `eval-harness`, `grill-me`, `diagnose` — come from my own setup, redistributed under MIT (see [`LICENSE`](LICENSE)).
+
+If you're an upstream author and want changes to attribution, please open an issue or PR.
+
+---
+
+## Why these and not others
+
+I started with ~73 skills installed. After auditing, I removed:
+
+- Stack-irrelevant frameworks (Java/Spring, Django, C++, Swift)
+- Niche one-offs
+- Duplicates (kept the better half of each pair)
+
+Then added 50 new ones from the most-starred Claude/agent skills repos on GitHub, curating heavily. The 32 here are the surviving subset that map to actual workflows. Skills I tried and removed are not included.
+
+---
+
+## License
+
+The wrapper repo and the 6 originally-authored skills are MIT (see [`LICENSE`](LICENSE)). Bundled upstream skills retain their original licenses, preserved verbatim in [`licenses/`](licenses/).
