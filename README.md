@@ -2,14 +2,6 @@
 
 A curated set of 40 Claude Code skills I actually use day-to-day, packaged for easy install.
 
-Built around three workflows:
-
-1. **Personal knowledge management** — the [Karpathy LLM-Wiki pattern](https://github.com/karpathy/karpathy.github.io/blob/master/llm_wiki.md) on top of an Obsidian vault.
-2. **Multi-agent / context engineering** — patterns, evaluation, memory systems for building agent platforms.
-3. **Scientific research workflow** — paper lookup, literature reviews, biomed/pharma KG (currently testing).
-
-If you're starting from zero with Claude Code skills, this is a sensible starting kit.
-
 ---
 
 ## Install
