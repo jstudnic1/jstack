@@ -1,6 +1,6 @@
 # jstack
 
-A curated set of 32 Claude Code skills I actually use day-to-day, packaged for easy install.
+A curated set of 33 Claude Code skills I actually use day-to-day, packaged for easy install.
 
 Built around three workflows:
 
@@ -50,6 +50,7 @@ Or copy by category — see [What's inside](#whats-inside) below.
 | [`obsidian-markdown`](skills/obsidian-markdown) | Obsidian-flavored markdown — wikilinks, callouts, frontmatter, embeds. |
 | [`obsidian-cli`](skills/obsidian-cli) | CLI operations on Obsidian vaults — read, create, search, manage notes from the shell. |
 | [`obsidian-bases`](skills/obsidian-bases) | `.base` file editing — views, filters, formulas. |
+| [`mcp2cli`](skills/mcp2cli) | Turns any MCP server, OpenAPI spec, or GraphQL endpoint into a CLI at runtime — no codegen. Saves 96–99% of tokens otherwise wasted on tool schemas. |
 
 ### Multi-agent & context engineering
 
@@ -127,22 +128,11 @@ Most skills in this repo come from upstream open-source projects. Their original
 | `multi-agent-patterns`, `memory-systems`, `context-*`, `evaluation`, `advanced-evaluation`, `tool-design` | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | See [licenses/](licenses/) |
 | `paper-lookup`, `literature-review`, `citation-management`, `scientific-writing`, `peer-review`, `scholar-evaluation`, `primekg`, `medchem`, `rdkit`, `pyhealth`, `pytdc`, `benchling-integration` | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | See [licenses/](licenses/) |
 | `caveman` | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | See [licenses/](licenses/) |
+| `mcp2cli` | [knowsuchagency/mcp2cli](https://github.com/knowsuchagency/mcp2cli) | MIT |
 
 The remaining six skills — `karpathy-guidelines`, `iterative-retrieval`, `cost-aware-llm-pipeline`, `eval-harness`, `grill-me`, `diagnose` — come from my own setup, redistributed under MIT (see [`LICENSE`](LICENSE)).
 
 If you're an upstream author and want changes to attribution, please open an issue or PR.
-
----
-
-## Why these and not others
-
-I started with ~73 skills installed. After auditing, I removed:
-
-- Stack-irrelevant frameworks (Java/Spring, Django, C++, Swift)
-- Niche one-offs
-- Duplicates (kept the better half of each pair)
-
-Then added 50 new ones from the most-starred Claude/agent skills repos on GitHub, curating heavily. The 32 here are the surviving subset that map to actual workflows. Skills I tried and removed are not included.
 
 ---
 
