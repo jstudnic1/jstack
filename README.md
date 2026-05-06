@@ -14,19 +14,50 @@ If you're starting from zero with Claude Code skills, this is a sensible startin
 
 ## Install
 
+### Option 1 — Install a single skill (recommended)
+
+Pick what you actually need. Browse the [skills directory](skills/), find one, copy just that.
+
+```bash
+# Clone the repo somewhere temporary
+git clone https://github.com/jstudnic1/jstack.git /tmp/jstack
+
+# Copy ONE skill into your skills dir
+cp -r /tmp/jstack/skills/last30days ~/.claude/skills/
+
+# Restart your Claude Code session
+```
+
+Replace `last30days` with any skill name from [What's inside](#whats-inside). Each skill is fully self-contained — copy as many or as few as you want. To install several at once, list them:
+
+```bash
+cp -r /tmp/jstack/skills/{last30days,defuddle,caveman} ~/.claude/skills/
+```
+
+Cleanup the clone afterwards if you don't want it hanging around:
+
+```bash
+rm -rf /tmp/jstack
+```
+
+### Option 2 — Install by category
+
+Each section under [What's inside](#whats-inside) is a coherent group. Example: install just the Obsidian-related skills:
+
+```bash
+cd /tmp/jstack/skills
+cp -r defuddle obsidian-markdown obsidian-cli obsidian-bases mcp2cli ~/.claude/skills/
+```
+
+### Option 3 — Install everything
+
+Only if you're starting from a near-empty setup or specifically want this whole curation. Otherwise prefer Option 1.
+
 ```bash
 git clone https://github.com/jstudnic1/jstack.git
 cp -r jstack/skills/* ~/.claude/skills/
 # restart your Claude Code session
 ```
-
-To install a single skill:
-
-```bash
-cp -r jstack/skills/last30days ~/.claude/skills/
-```
-
-Or copy by category — see [What's inside](#whats-inside) below.
 
 ---
 
