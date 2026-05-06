@@ -1,6 +1,6 @@
 # jstack
 
-A curated set of 33 Claude Code skills I actually use day-to-day, packaged for easy install.
+A curated set of 40 Claude Code skills I actually use day-to-day, packaged for easy install.
 
 Built around three workflows:
 
@@ -93,6 +93,13 @@ cp -r jstack/skills/* ~/.claude/skills/
 | [`evaluation`](skills/evaluation) | Multi-dimensional evaluation, LLM-as-judge, quality gates for agent pipelines. |
 | [`advanced-evaluation`](skills/advanced-evaluation) | Position bias mitigation, pairwise comparison, automated quality assessment. |
 | [`tool-design`](skills/tool-design) | Tool consolidation, MCP design, naming conventions. |
+| [`context-fundamentals`](skills/context-fundamentals) | Foundational understanding of context engineering — context components, attention mechanics, progressive disclosure, budgeting. |
+| [`context-degradation`](skills/context-degradation) | Diagnose context problems — lost-in-middle, context poisoning, context clash, attention pattern failures. |
+| [`filesystem-context`](skills/filesystem-context) | Offload context to files, just-in-time loading, agent scratch pads, tool output persistence. |
+| [`latent-briefing`](skills/latent-briefing) | Share memory between agents via KV-cache compaction. Reduces worker tokens in orchestrator-worker setups. |
+| [`hosted-agents`](skills/hosted-agents) | Background agents, sandboxed VMs, Modal sandboxes, self-spawning agents, remote coding environments. |
+| [`project-development`](skills/project-development) | Start an LLM project — pipeline architecture, task-model fit, cost estimation, agent-assisted development. |
+| [`bdi-mental-states`](skills/bdi-mental-states) | BDI architecture (Belief-Desire-Intention), cognitive agent modeling, RDF → mental states, neuro-symbolic AI integration. |
 
 ### Process & engineering discipline
 
@@ -156,7 +163,7 @@ Most skills in this repo come from upstream open-source projects. Their original
 | `defuddle`, `obsidian-markdown`, `obsidian-cli`, `obsidian-bases` | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | MIT |
 | `planning-with-files` | [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files) | See [licenses/](licenses/) |
 | `last30days` | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | MIT |
-| `multi-agent-patterns`, `memory-systems`, `context-*`, `evaluation`, `advanced-evaluation`, `tool-design` | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | See [licenses/](licenses/) |
+| `multi-agent-patterns`, `memory-systems`, `bdi-mental-states`, `context-fundamentals`, `context-compression`, `context-optimization`, `context-degradation`, `filesystem-context`, `latent-briefing`, `hosted-agents`, `project-development`, `tool-design`, `evaluation`, `advanced-evaluation` | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | See [licenses/](licenses/) |
 | `paper-lookup`, `literature-review`, `citation-management`, `scientific-writing`, `peer-review`, `scholar-evaluation`, `primekg`, `medchem`, `rdkit`, `pyhealth`, `pytdc`, `benchling-integration` | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | See [licenses/](licenses/) |
 | `caveman` | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | See [licenses/](licenses/) |
 | `mcp2cli` | [knowsuchagency/mcp2cli](https://github.com/knowsuchagency/mcp2cli) | MIT |
