@@ -4,6 +4,55 @@ A curated set of 40 Claude Code skills I actually use day-to-day, packaged for e
 
 ---
 
+## Auto-update from upstreams
+
+This repo bundles 26 of its 40 skills from 7 upstream open-source projects. The bundled copies can drift from upstream over time. The `sync.sh` script keeps `~/.claude/skills/` updated by re-cloning each upstream and copying the latest skill versions in.
+
+```bash
+# Clone the repo somewhere stable
+git clone https://github.com/jstudnic1/jstack.git ~/jstack
+
+# Run sync — pulls latest from all upstreams, updates ~/.claude/skills/
+~/jstack/sync.sh
+
+# Preview what would change without writing
+~/jstack/sync.sh --check
+
+# Sync just one skill
+~/jstack/sync.sh --skill last30days
+```
+
+`sync.sh` reads `manifest.json` (the source-of-truth mapping every skill to its upstream and path), compares each skill's `SKILL.md` hash against your local copy, and updates only what changed. The 6 originally-authored skills (marked `source: self`) come from the repo itself.
+
+### Run weekly via launchd (macOS)
+
+To keep skills up-to-date without thinking about it, schedule `sync.sh` weekly via launchd:
+
+```bash
+# Copy the example plist (logs go to ~/Library/Logs/jstack-sync.log)
+cp ~/jstack/com.jstudnic1.jstack.sync.plist ~/Library/LaunchAgents/
+
+# Load it
+launchctl load ~/Library/LaunchAgents/com.jstudnic1.jstack.sync.plist
+
+# Verify it's scheduled
+launchctl list | grep jstack
+```
+
+The plist runs `sync.sh` every Sunday at 03:00. Edit `StartCalendarInterval` in the plist to change the schedule. To disable: `launchctl unload ~/Library/LaunchAgents/com.jstudnic1.jstack.sync.plist`.
+
+### Run weekly via cron (Linux)
+
+```bash
+# Edit crontab
+crontab -e
+
+# Add this line for Sunday 3am:
+0 3 * * 0 ~/jstack/sync.sh >> ~/.local/share/jstack-sync.log 2>&1
+```
+
+---
+
 ## Install
 
 ### Option 1 — Install a single skill (recommended)
